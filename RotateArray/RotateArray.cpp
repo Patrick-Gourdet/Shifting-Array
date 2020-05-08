@@ -1,7 +1,7 @@
 #include <cassert>
 #include <iostream>
 #include <vector>
-std::vector<int>* swap_o_1(std::vector<int>& nums,int k)
+void swap_o_1(std::vector<int>& nums,int k)
 {
 	
 		int size = nums.size();
@@ -21,18 +21,21 @@ std::vector<int>* swap_o_1(std::vector<int>& nums,int k)
 	
 }
 
-
+/// <summary>
+/// Shift an array in place was also not my strongest competition
+/// as I bended to the need of auxiliary space complexity of O(n)
+/// </summary>
+/// <returns></returns>
 int main()
 {
 	std::vector<int> arr = { 1,2,3,4,5,6 };
-	auto res = swap_o_1(arr, 2);
-	assert(res->at(0),5);
-	res = swap_o_1(arr, 1);
-	assert(res->at(0), 5);
-	res = swap_o_1(arr, 4);
-	assert(res->at(0), 4);
-	// give k shifts to the index
-	// a slight mathimatical fines
-	// with an if should do the trick
-	
+	swap_o_1(arr, 2);
+	assert(arr.at(0),5);
+	swap_o_1(arr, 1);
+	assert(arr.at(0), 5);
+	swap_o_1(arr, 4);
+	assert(arr.at(0), 4);
+	arr = { -1,4 };
+	swap_o_1(arr, 3);
+	assert(arr.at(0), 4);
 }
